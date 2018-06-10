@@ -55,7 +55,7 @@ final class ErrorListener
     public function onConsoleError(ConsoleErrorEvent $event): void
     {
         $error = $event->getError();
-        
+
         if (! ($error instanceof ExceptionInterface)) {
             $this->writer->setOutput($event->getOutput());
 
