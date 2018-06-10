@@ -3,6 +3,7 @@
     "description": "Collision's adapter for Symfony applications. Error Reporting for console/command-line PHP applications.",
     "keywords": ["symfony", "bundle", "console", "command-line", "php", "cli", "error", "handling", "collision", "laravel-zero"],
     "license": "MIT",
+    "type": "symfony-bundle",
     "authors": [
         {
             "name": "Nuno Maduro",
