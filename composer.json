@@ -1,6 +1,6 @@
 {
     "name": "nunomaduro/collision-adapter-symfony",
-    "description": "Collision's adapter for Symfony applications. Beautiful error reporting when interacting with your app through the command-line.",
+    "description": "Collision's adapter for Symfony applications. Error Reporting for console/command-line PHP applications.",
     "keywords": ["symfony", "bundle", "console", "command-line", "php", "cli", "error", "handling", "collision", "laravel-zero"],
     "license": "MIT",
     "authors": [
