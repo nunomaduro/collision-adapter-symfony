@@ -18,7 +18,7 @@
 Collision was created by, and is maintained by [Nuno Maduro](https://github.com/nunomaduro), and is an error handler framework for console/command-line PHP applications.
 
 - Build on top of [Whoops](https://github.com/filp/whoops).
-- Supports [Laravel](https://github.com/laravel/laravel) Artisan & [PHPUnit](https://github.com/sebastianbergmann/phpunit).
+- Supports [Laravel](https://github.com/laravel/laravel) & [Symfony](https://github.com/symfony/symfony) & [PHPUnit](https://github.com/sebastianbergmann/phpunit).
 - Built with [PHP 7](https://php.net) using modern coding standards.
 
 > **Note:** This repository contains the core code of the Collision Symfony Adapter. If you want use Collision for Laravel, for PHPUnit or for a standalone console application: visit the main [Collision repository](https://github.com/nunomaduro/collision).
