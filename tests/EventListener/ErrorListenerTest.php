@@ -20,6 +20,7 @@ use NunoMaduro\Collision\Contracts\Writer;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
+use Symfony\Component\Console\Exception\CommandNotFoundException;
 use NunoMaduro\CollisionAdapterSymfony\EventListener\ErrorListener;
 
 class ErrorListenerTest extends TestCase
@@ -63,5 +64,18 @@ class ErrorListenerTest extends TestCase
         $errorListener->onConsoleError($event);
 
         $this->assertEquals(0, $event->getExitCode());
+    }
+
+    public function testThatIgnoresBaseConsoleExceptions(): void
+    {
+        $exception = new CommandNotFoundException('Command not found');
+        $event = new ConsoleErrorEvent(new ArrayInput([]), $output = new NullOutput(), $exception);
+
+        $writerMock = $this->createMock(Writer::class);
+        $writerMock->expects($this->never())
+            ->method('write');
+
+        $errorListener = new ErrorListener($writerMock);
+        $errorListener->onConsoleError($event);
     }
 }

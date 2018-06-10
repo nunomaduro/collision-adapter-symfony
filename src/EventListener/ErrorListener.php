@@ -16,6 +16,7 @@ namespace NunoMaduro\CollisionAdapterSymfony\EventListener;
 use Whoops\Exception\Inspector;
 use NunoMaduro\Collision\Writer;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
+use Symfony\Component\Console\Exception\ExceptionInterface;
 use NunoMaduro\Collision\Contracts\Writer as WriterContract;
 
 /**
@@ -53,11 +54,15 @@ final class ErrorListener
      */
     public function onConsoleError(ConsoleErrorEvent $event): void
     {
-        $this->writer->setOutput($event->getOutput());
+        $error = $event->getError();
+        
+        if (! ($error instanceof ExceptionInterface)) {
+            $this->writer->setOutput($event->getOutput());
 
-        $this->writer->write(new Inspector($event->getError()));
+            $this->writer->write(new Inspector($error));
 
-        $event->setExitCode(0);
+            $event->setExitCode(0);
+        }
     }
 }
 
