@@ -1,0 +1,38 @@
+{
+    "name": "nunomaduro/collision-adapter-symfony",
+    "description": "Collision's adapter for Symfony applications. Beautiful error reporting when interacting with your app through the command-line.",
+    "keywords": ["symfony", "bundle", "console", "command-line", "php", "cli", "error", "handling", "collision", "laravel-zero"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nuno Maduro",
+            "email": "enunomaduro@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "nunomaduro/collision": "^2.0",
+        "symfony/framework-bundle": "^4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2",
+        "symfony/yaml": "^4.0",
+        "symfony/filesystem": "^4.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "NunoMaduro\\CollisionAdapterSymfony\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
