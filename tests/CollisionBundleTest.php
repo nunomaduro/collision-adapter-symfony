@@ -15,7 +15,7 @@ namespace Tests;
 
 use NunoMaduro\CollisionAdapterSymfony\CollisionBundle;
 
-class CollisionBundleTest extends Testcase
+class CollisionBundleTest extends TestCase
 {
     /**
      * Tests if the bundle got registered correctly on the kernel.

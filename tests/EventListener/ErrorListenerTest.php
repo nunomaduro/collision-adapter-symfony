@@ -22,7 +22,7 @@ use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use NunoMaduro\CollisionAdapterSymfony\EventListener\ErrorListener;
 
-class ErrorListenerTest extends Testcase
+class ErrorListenerTest extends TestCase
 {
     public function testUsageOfEventOutput(): void
     {
