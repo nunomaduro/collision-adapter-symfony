@@ -34,7 +34,7 @@ class TestCase extends KernelTestCase
         parent::tearDown();
 
         $filesystem = new Filesystem();
-        $filesystem->remove(__DIR__ . DIRECTORY_SEPARATOR . 'cache');
-        $filesystem->remove(__DIR__ . DIRECTORY_SEPARATOR . 'logs');
+        $filesystem->remove(__DIR__.DIRECTORY_SEPARATOR.'cache');
+        $filesystem->remove(__DIR__.DIRECTORY_SEPARATOR.'logs');
     }
 }

@@ -36,6 +36,6 @@ class Kernel extends KernelForTest
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__ . DIRECTORY_SEPARATOR . 'config.yml');
+        $loader->load(__DIR__.DIRECTORY_SEPARATOR.'config.yml');
     }
 }
