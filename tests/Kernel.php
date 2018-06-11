@@ -15,8 +15,8 @@ namespace Tests;
 
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use NunoMaduro\CollisionAdapterSymfony\CollisionBundle;
 use Symfony\Component\HttpKernel\Tests\Fixtures\KernelForTest;
+use NunoMaduro\CollisionAdapterSymfony\CollisionAdapterSymfonyBundle;
 
 class Kernel extends KernelForTest
 {
@@ -27,7 +27,7 @@ class Kernel extends KernelForTest
     {
         return array_merge(
             parent::registerBundles(),
-            [new FrameworkBundle(), new CollisionBundle()]
+            [new FrameworkBundle(), new CollisionAdapterSymfonyBundle()]
         );
     }
 

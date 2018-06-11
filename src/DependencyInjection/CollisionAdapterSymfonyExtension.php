@@ -23,7 +23,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @author Nuno Maduro <enunomaduro@gmail.com>
  */
-final class CollisionExtension extends Extension
+final class CollisionAdapterSymfonyExtension extends Extension
 {
     /**
      * {@inheritdoc}

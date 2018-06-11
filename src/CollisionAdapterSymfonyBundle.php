@@ -20,6 +20,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @author Nuno Maduro <enunomaduro@gmail.com>
  */
-final class CollisionBundle extends Bundle
+final class CollisionAdapterSymfonyBundle extends Bundle
 {
 }

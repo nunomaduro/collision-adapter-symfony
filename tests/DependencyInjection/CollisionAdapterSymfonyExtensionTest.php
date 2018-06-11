@@ -17,7 +17,7 @@ use Tests\TestCase;
 use Symfony\Component\Console\ConsoleEvents;
 use NunoMaduro\CollisionAdapterSymfony\EventListener\ErrorListener;
 
-class CollisionExtensionTest extends TestCase
+class CollisionAdapterSymfonyExtensionTest extends TestCase
 {
     public function testContainerHasService(): void
     {

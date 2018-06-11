@@ -33,15 +33,6 @@ Require Collision Adapter Symfony using [Composer](https://getcomposer.org):
 composer require nunomaduro/collision-adapter-symfony
 ```
 
-Update `config/bundles.php` adding the CollisionBundle:
-
-```php
-return [
-    // ...
-    NunoMaduro\CollisionAdapterSymfony\CollisionBundle::class  => ['all' => true],
-];
-```
-
 ## Contributing
 
 Thank you for considering to contribute to Collision Adapter Symfony. All the contribution guidelines are mentioned [here](CONTRIBUTING.md).

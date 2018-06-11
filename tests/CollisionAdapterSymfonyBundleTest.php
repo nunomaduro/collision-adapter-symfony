@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use NunoMaduro\CollisionAdapterSymfony\CollisionBundle;
+use NunoMaduro\CollisionAdapterSymfony\CollisionAdapterSymfonyBundle;
 
-class CollisionBundleTest extends TestCase
+class CollisionAdapterSymfonyBundleTest extends TestCase
 {
     /**
      * Tests if the bundle got registered correctly on the kernel.
@@ -24,8 +24,8 @@ class CollisionBundleTest extends TestCase
     {
         ($kernel = static::createKernel())->boot();
 
-        $bundle = $kernel->getBundle('CollisionBundle');
+        $bundle = $kernel->getBundle('CollisionAdapterSymfonyBundle');
 
-        $this->assertInstanceOf(CollisionBundle::class, $bundle);
+        $this->assertInstanceOf(CollisionAdapterSymfonyBundle::class, $bundle);
     }
 }
