@@ -13,28 +13,24 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use NunoMaduro\CollisionAdapterSymfony\CollisionAdapterSymfonyBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpKernel\Tests\Fixtures\KernelForTest;
-use NunoMaduro\CollisionAdapterSymfony\CollisionAdapterSymfonyBundle;
 
-class Kernel extends KernelForTest
+class Kernel extends \Symfony\Component\HttpKernel\Kernel
 {
     /**
      * {@inheritdoc}
      */
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
-        return array_merge(
-            parent::registerBundles(),
-            [new FrameworkBundle(), new CollisionAdapterSymfonyBundle()]
-        );
+        return [new FrameworkBundle(), new CollisionAdapterSymfonyBundle()];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__.DIRECTORY_SEPARATOR.'config.yml');
     }

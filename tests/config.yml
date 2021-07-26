@@ -15,5 +15,3 @@ framework:
     test:                    ~
     session:
         storage_id:          session.storage.mock_file
-    property_access:
-        magic_call:          true
