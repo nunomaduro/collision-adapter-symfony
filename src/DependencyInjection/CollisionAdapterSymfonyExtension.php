@@ -27,6 +27,8 @@ final class CollisionAdapterSymfonyExtension extends Extension
 {
     /**
      * {@inheritdoc}
+     *
+     * @param mixed[] $configs
      */
     public function load(array $configs, ContainerBuilder $container): void
     {

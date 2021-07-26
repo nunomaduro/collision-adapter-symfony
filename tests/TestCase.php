@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\Filesystem\Filesystem;
 
 class TestCase extends KernelTestCase
 {
@@ -29,7 +29,7 @@ class TestCase extends KernelTestCase
     /**
      * {@inheritdoc}
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
 
