@@ -14,14 +14,14 @@ declare(strict_types=1);
 namespace Tests\EventListener;
 
 use Exception;
-use Tests\TestCase;
-use Whoops\Exception\Inspector;
 use NunoMaduro\Collision\Contracts\Writer;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\NullOutput;
+use NunoMaduro\CollisionAdapterSymfony\EventListener\ErrorListener;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
-use NunoMaduro\CollisionAdapterSymfony\EventListener\ErrorListener;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
+use Tests\TestCase;
+use Whoops\Exception\Inspector;
 
 class ErrorListenerTest extends TestCase
 {

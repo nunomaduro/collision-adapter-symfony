@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Tests\DependencyInjection;
 
-use Tests\TestCase;
-use Symfony\Component\Console\ConsoleEvents;
 use NunoMaduro\CollisionAdapterSymfony\EventListener\ErrorListener;
+use Symfony\Component\Console\ConsoleEvents;
+use Tests\TestCase;
 
 class CollisionAdapterSymfonyExtensionTest extends TestCase
 {

@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace NunoMaduro\CollisionAdapterSymfony\EventListener;
 
-use Whoops\Exception\Inspector;
+use NunoMaduro\Collision\Contracts\Writer as WriterContract;
 use NunoMaduro\Collision\Writer;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\Console\Exception\ExceptionInterface;
-use NunoMaduro\Collision\Contracts\Writer as WriterContract;
+use Whoops\Exception\Inspector;
 
 /**
  * This is an Collision Adapter Symfony Error Listener implementation.
