@@ -1,5 +1,5 @@
 {
-    "name": "nunomaduro/collision-adapter-symfony",
+    "name": "zenchron-dynamics/collision-adapter-symfony",
     "description": "Collision's adapter for Symfony applications. Error Reporting for console/command-line PHP applications.",
     "keywords": ["symfony", "bundle", "console", "command-line", "php", "cli", "error", "handling", "collision", "laravel-zero"],
     "license": "MIT",
@@ -8,6 +8,10 @@
         {
             "name": "Nuno Maduro",
             "email": "enunomaduro@gmail.com"
+        },
+        {
+            "name": "Bogdan Olteanu",
+            "email": "bogdan@zenchron.com"
         }
     ],
     "require": {
