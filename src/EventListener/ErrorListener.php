@@ -47,6 +47,5 @@ final class ErrorListener
 
         $this->writer->setOutput($event->getOutput());
         $this->writer->write(new Inspector($error));
-        $event->setExitCode(0);
     }
 }

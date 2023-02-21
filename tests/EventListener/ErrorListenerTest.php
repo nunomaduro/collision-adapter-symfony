@@ -49,12 +49,12 @@ class ErrorListenerTest extends TestCase
         $errorListener->onConsoleError($event);
     }
 
-    public function testUpdateOfExitCode(): void
+    public function testNoUpdateOfExitCode(): void
     {
         $event = new ConsoleErrorEvent(new ArrayInput([]), new NullOutput(), new Exception('Something went wrong'));
         (new ErrorListener(new Writer(null, new NullOutput())))->onConsoleError($event);
 
-        $this->assertEquals(0, $event->getExitCode());
+        $this->assertEquals(1, $event->getExitCode());
     }
 
     public function testThatIgnoresBaseConsoleExceptions(): void
