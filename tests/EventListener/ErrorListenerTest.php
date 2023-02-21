@@ -14,68 +14,61 @@ declare(strict_types=1);
 namespace Tests\EventListener;
 
 use Exception;
-use NunoMaduro\Collision\Contracts\Writer;
+use NunoMaduro\Collision\Writer;
 use NunoMaduro\CollisionAdapterSymfony\EventListener\ErrorListener;
 use Symfony\Component\Console\Event\ConsoleErrorEvent;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
+use Symfony\Component\Console\Output\OutputInterface;
 use Tests\TestCase;
-use Whoops\Exception\Inspector;
 
 class ErrorListenerTest extends TestCase
 {
     public function testUsageOfEventOutput(): void
     {
         $exception = new Exception('Something went wrong');
-        $event = new ConsoleErrorEvent(new ArrayInput([]), $output = new NullOutput(), $exception);
+        $output = $this->createMock(OutputInterface::class);
+        $output->expects($this->atLeastOnce())->method('writeln');
 
-        $writerMock = $this->createMock(Writer::class);
-        $writerMock->expects($this->once())
-            ->method('setOutput')
-            ->with($output);
+        $event = new ConsoleErrorEvent(new ArrayInput([]), $output, $exception);
 
-        $errorListener = new ErrorListener($writerMock);
+        $errorListener = new ErrorListener(new Writer(null, $output));
         $errorListener->onConsoleError($event);
     }
 
     public function testUsageOfEventException(): void
     {
+        $output = $this->createMock(OutputInterface::class);
+        $output->expects($this->atLeastOnce())->method('writeln');
+
         $exception = new Exception('Something went wrong');
-        $event = new ConsoleErrorEvent(new ArrayInput([]), $output = new NullOutput(), $exception);
+        $event = new ConsoleErrorEvent(new ArrayInput([]), $output, $exception);
 
-        $writerMock = $this->createMock(Writer::class);
-        $writerMock->expects($this->once())
-            ->method('write')
-            ->with(new Inspector($exception));
-
-        $errorListener = new ErrorListener($writerMock);
+        $errorListener = new ErrorListener(new Writer(null, $output));
         $errorListener->onConsoleError($event);
     }
 
     public function testUpdateOfExitCode(): void
     {
-        $exception = new Exception('Something went wrong');
-        $event = new ConsoleErrorEvent(new ArrayInput([]), $output = new NullOutput(), $exception);
-
-        $writerMock = $this->createMock(Writer::class);
-
-        $errorListener = new ErrorListener($writerMock);
-        $errorListener->onConsoleError($event);
+        $event = new ConsoleErrorEvent(new ArrayInput([]), new NullOutput(), new Exception('Something went wrong'));
+        (new ErrorListener(new Writer(null, new NullOutput())))->onConsoleError($event);
 
         $this->assertEquals(0, $event->getExitCode());
     }
 
     public function testThatIgnoresBaseConsoleExceptions(): void
     {
-        $exception = new CommandNotFoundException('Command not found');
-        $event = new ConsoleErrorEvent(new ArrayInput([]), $output = new NullOutput(), $exception);
+        $output = $this->createMock(OutputInterface::class);
+        $output->expects($this->never())->method('writeln');
 
-        $writerMock = $this->createMock(Writer::class);
-        $writerMock->expects($this->never())
-            ->method('write');
-
-        $errorListener = new ErrorListener($writerMock);
-        $errorListener->onConsoleError($event);
+        (new ErrorListener(new Writer(null, $output)))
+            ->onConsoleError(
+                new ConsoleErrorEvent(
+                    new ArrayInput([]),
+                    new NullOutput(),
+                    new CommandNotFoundException('Command not found'),
+            ),
+        );
     }
 }

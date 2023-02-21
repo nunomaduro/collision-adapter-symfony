@@ -32,6 +32,6 @@ class Kernel extends \Symfony\Component\HttpKernel\Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $loader->load(__DIR__.DIRECTORY_SEPARATOR.'config.yml');
+        $loader->load(__DIR__.'/config.yaml');
     }
 }

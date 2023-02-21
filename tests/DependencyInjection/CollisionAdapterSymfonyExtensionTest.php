@@ -21,31 +21,24 @@ class CollisionAdapterSymfonyExtensionTest extends TestCase
 {
     public function testContainerHasService(): void
     {
-        ($kernel = static::createKernel())->boot();
-        $container = $kernel->getContainer();
         $id = 'collision.error_listener';
 
         $this->assertTrue(
-            $container->has($id),
-            sprintf('The container should have a `%s` alias for autowiring support.', $id)
+            self::getContainer()->has($id),
+            "The container should have a `$id` alias for autowiring support.",
         );
     }
 
     public function testDispacherHasListener(): void
     {
-        ($kernel = static::createKernel())->boot();
-        $dispacher = $kernel->getContainer()
-            ->get('event_dispatcher');
+        $this->expectNotToPerformAssertions();
 
-        $listeners = $dispacher->getListeners()[ConsoleEvents::ERROR];
-
-        $listenerFound = false;
-        foreach ($listeners as $listener) {
+        foreach (self::getContainer()->get('event_dispatcher')->getListeners()[ConsoleEvents::ERROR] as $listener) {
             if ($listener[0] instanceof ErrorListener) {
-                $listenerFound = true;
+                return;
             }
         }
 
-        $this->assertTrue($listenerFound, 'The event dispacher an ErrorListener attached');
+        $this->fail('ErrorListener has not been attached to event dispatcher');
     }
 }

@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         beStrictAboutTestsThatDoNotTestAnything="true"
+<phpunit
          beStrictAboutOutputDuringTests="true"
          bootstrap="vendor/autoload.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
          failOnRisky="true"
          failOnWarning="true"
-         processIsolation="false"
-         stopOnError="false"
-         stopOnFailure="false"
-         verbose="true"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
 >
+    <php>
+        <env name="KERNEL_CLASS" value="Tests\Kernel" />
+    </php>
     <testsuites>
-        <testsuite name="Test Suite">
-            <directory suffix="Test.php">./tests</directory>
-        </testsuite>
+        <testsuite name="Test Suite"><directory>tests</directory></testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src</directory>
-            <exclude>
-                <directory suffix=".php">./src/Resources/config</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+    <coverage>
+        <include><directory>src</directory></include>
+        <exclude><directory>src/Resources/config</directory></exclude>
+    </coverage>
 </phpunit>

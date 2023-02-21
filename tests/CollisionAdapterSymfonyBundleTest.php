@@ -22,10 +22,9 @@ class CollisionAdapterSymfonyBundleTest extends TestCase
      */
     public function testBundleGotRegistered(): void
     {
-        ($kernel = static::createKernel())->boot();
-
-        $bundle = $kernel->getBundle('CollisionAdapterSymfonyBundle');
-
-        $this->assertInstanceOf(CollisionAdapterSymfonyBundle::class, $bundle);
+        $this->assertInstanceOf(
+            CollisionAdapterSymfonyBundle::class,
+            self::bootKernel()->getBundle('CollisionAdapterSymfonyBundle'),
+        );
     }
 }

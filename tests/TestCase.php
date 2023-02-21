@@ -18,23 +18,9 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class TestCase extends KernelTestCase
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected static function getKernelClass(): string
-    {
-        return Kernel::class;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     protected function tearDown(): void
     {
         parent::tearDown();
-
-        $filesystem = new Filesystem();
-        $filesystem->remove(__DIR__.DIRECTORY_SEPARATOR.'cache');
-        $filesystem->remove(__DIR__.DIRECTORY_SEPARATOR.'logs');
+        (new Filesystem())->remove(__DIR__.'/../var');
     }
 }

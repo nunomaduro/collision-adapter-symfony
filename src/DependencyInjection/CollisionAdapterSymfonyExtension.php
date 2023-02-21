@@ -28,12 +28,12 @@ final class CollisionAdapterSymfonyExtension extends Extension
     /**
      * {@inheritdoc}
      *
-     * @param mixed[] $configs
+     * @param  mixed[]  $configs
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new PhpFileLoader($container, new FileLocator(__DIR__));
 
-        $loader->load('../Resources/config/services.php');
+        $loader->load(__DIR__.'/../Resources/config/services.php');
     }
 }
