@@ -8,6 +8,7 @@
   <a href="https://travis-ci.org/nunomaduro/collision-adapter-symfony"><img src="https://img.shields.io/travis/nunomaduro/collision-adapter-symfony/master.svg" alt="Build Status"></img></a>
   <a href="https://scrutinizer-ci.com/g/nunomaduro/collision-adapter-symfony"><img src="https://img.shields.io/scrutinizer/g/nunomaduro/collision-adapter-symfony.svg" alt="Quality Score"></img></a>
   <a href="https://scrutinizer-ci.com/g/nunomaduro/collision-adapter-symfony"><img src="https://img.shields.io/scrutinizer/coverage/g/nunomaduro/collision-adapter-symfony.svg" alt="Coverage"></img></a>
+  <a href="https://youtube.com/@nunomaduro?sub_confirmation=1"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCO_hYZF2gb_CyG5sA7ArlGg?style=flat&label=youtube&color=brightgreen"></a>
   <a href="https://packagist.org/packages/nunomaduro/collision-adapter-symfony"><img src="https://poser.pugx.org/nunomaduro/collision-adapter-symfony/d/total.svg" alt="Total Downloads"></a>
   <a href="https://packagist.org/packages/nunomaduro/collision-adapter-symfony"><img src="https://poser.pugx.org/nunomaduro/collision-adapter-symfony/v/stable.svg" alt="Latest Stable Version"></a>
   <a href="https://packagist.org/packages/nunomaduro/collision-adapter-symfony"><img src="https://poser.pugx.org/nunomaduro/collision-adapter-symfony/license.svg" alt="License"></a>
